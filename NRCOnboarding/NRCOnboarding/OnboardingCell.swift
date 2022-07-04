@@ -18,14 +18,13 @@ class OnboardingCell : UICollectionViewCell {
     let view = UIImageView()
     view.contentMode = .scaleAspectFill
     view.clipsToBounds = true
-    view.backgroundColor = .lightGray
+    view.backgroundColor = .clear
     return view
   }()
   
   var firstLabel : UILabel = {
     let label = UILabel()
     label.textColor = .white
-    label.text = "asdfasdfasdfadsf"
     label.numberOfLines = 0
     label.textAlignment = .center
     return label
@@ -35,7 +34,6 @@ class OnboardingCell : UICollectionViewCell {
     let label = UILabel()
     label.textColor = .white
     label.numberOfLines = 0
-    label.text = "asdfasdfasdfasfasfsdfasdfasfasdfasdfdfa"
     label.textAlignment = .center
     return label
   }()
