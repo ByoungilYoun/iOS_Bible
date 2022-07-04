@@ -50,6 +50,7 @@ class OnboardingViewController : UIViewController {
     super.viewDidLoad()
     configureUI()
     configureCollectionView()
+    configurePageControl()
   }
   
   //MARK: - Functions
@@ -58,8 +59,6 @@ class OnboardingViewController : UIViewController {
     stackView.distribution = .fillEqually
     stackView.axis = .horizontal
     stackView.spacing = 0
-    
-    pageControl.backgroundColor = .blue
     
     [backgroundImageView, onboardingCollectionView, pageControl, stackView].forEach {
       view.addSubview($0)
@@ -96,6 +95,11 @@ class OnboardingViewController : UIViewController {
     onboardingCollectionView.delegate = self
     onboardingCollectionView.isPagingEnabled = true
   }
+  
+  private func configurePageControl() {
+    pageControl.numberOfPages = messageData.count
+    pageControl.currentPage = 0
+  }
 }
 
 //MARK: - UICollectionViewDataSource
@@ -130,5 +134,13 @@ extension OnboardingViewController : UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
     return .zero
+  }
+}
+
+//MARK: - UIScrollViewDelegate
+extension OnboardingViewController : UIScrollViewDelegate {
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) { // 감속하면서 멈출때
+    let index = Int(scrollView.contentOffset.x / self.onboardingCollectionView.bounds.width)
+    pageControl.currentPage = index
   }
 }
