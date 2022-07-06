@@ -13,6 +13,7 @@
 		0F47C77D2875EEA8009A44CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F47C77B2875EEA8009A44CB /* LaunchScreen.storyboard */; };
 		0F47C7852875F0EF009A44CB /* FocusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F47C7842875F0EF009A44CB /* FocusViewController.swift */; };
 		0F47C7882875F149009A44CB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0F47C7872875F149009A44CB /* SnapKit */; };
+		0F47C78A2875F22A009A44CB /* FocusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F47C7892875F22A009A44CB /* FocusCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		0F47C77C2875EEA8009A44CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F47C77E2875EEA8009A44CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F47C7842875F0EF009A44CB /* FocusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusViewController.swift; sourceTree = "<group>"; };
+		0F47C7892875F22A009A44CB /* FocusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				0F47C7702875EEA6009A44CB /* AppDelegate.swift */,
 				0F47C7722875EEA6009A44CB /* SceneDelegate.swift */,
 				0F47C7842875F0EF009A44CB /* FocusViewController.swift */,
+				0F47C7892875F22A009A44CB /* FocusCell.swift */,
 				0F47C7792875EEA8009A44CB /* Assets.xcassets */,
 				0F47C77B2875EEA8009A44CB /* LaunchScreen.storyboard */,
 				0F47C77E2875EEA8009A44CB /* Info.plist */,
@@ -144,6 +147,7 @@
 			files = (
 				0F47C7712875EEA6009A44CB /* AppDelegate.swift in Sources */,
 				0F47C7852875F0EF009A44CB /* FocusViewController.swift in Sources */,
+				0F47C78A2875F22A009A44CB /* FocusCell.swift in Sources */,
 				0F47C7732875EEA6009A44CB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
