@@ -14,6 +14,7 @@
 		0F47C7852875F0EF009A44CB /* FocusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F47C7842875F0EF009A44CB /* FocusViewController.swift */; };
 		0F47C7882875F149009A44CB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0F47C7872875F149009A44CB /* SnapKit */; };
 		0F47C78A2875F22A009A44CB /* FocusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F47C7892875F22A009A44CB /* FocusCell.swift */; };
+		0F5AB462287C6AA3007BB90D /* Focus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5AB461287C6AA3007BB90D /* Focus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		0F47C77E2875EEA8009A44CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F47C7842875F0EF009A44CB /* FocusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusViewController.swift; sourceTree = "<group>"; };
 		0F47C7892875F22A009A44CB /* FocusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCell.swift; sourceTree = "<group>"; };
+		0F5AB461287C6AA3007BB90D /* Focus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Focus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				0F47C7702875EEA6009A44CB /* AppDelegate.swift */,
 				0F47C7722875EEA6009A44CB /* SceneDelegate.swift */,
+				0F5AB461287C6AA3007BB90D /* Focus.swift */,
 				0F47C7842875F0EF009A44CB /* FocusViewController.swift */,
 				0F47C7892875F22A009A44CB /* FocusCell.swift */,
 				0F47C7792875EEA8009A44CB /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F5AB462287C6AA3007BB90D /* Focus.swift in Sources */,
 				0F47C7712875EEA6009A44CB /* AppDelegate.swift in Sources */,
 				0F47C7852875F0EF009A44CB /* FocusViewController.swift in Sources */,
 				0F47C78A2875F22A009A44CB /* FocusCell.swift in Sources */,
