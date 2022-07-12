@@ -19,6 +19,7 @@ class FocusCell : UICollectionViewCell {
     label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
     label.text = "asdfasdfasdf"
     label.numberOfLines = 0
+    label.textColor = .white
     return label
   }()
   
@@ -35,7 +36,6 @@ class FocusCell : UICollectionViewCell {
     let view = UIImageView()
     view.contentMode = .scaleAspectFit
     view.clipsToBounds = true
-    view.image = UIImage(named: "cloud.heavyrain.fill")
     return view
   }()
   
@@ -51,6 +51,9 @@ class FocusCell : UICollectionViewCell {
   
   //MARK: - Functions
   private func configureUI() {
+    contentView.backgroundColor = UIColor.systemIndigo
+    contentView.layer.cornerRadius = 20
+    
     [titleLabel, descriptionLabel, imageView].forEach {
       contentView.addSubview($0)
     }
@@ -58,7 +61,7 @@ class FocusCell : UICollectionViewCell {
     titleLabel.snp.makeConstraints {
       $0.top.equalToSuperview().offset(30)
       $0.leading.equalToSuperview().offset(20)
-      $0.trailing.lessThanOrEqualTo(imageView.snp.leading).offset(30)
+      $0.trailing.lessThanOrEqualTo(imageView.snp.leading).offset(-30)
     }
     
     descriptionLabel.snp.makeConstraints {
@@ -69,8 +72,14 @@ class FocusCell : UICollectionViewCell {
     }
     
     imageView.snp.makeConstraints {
-      $0.top.trailing.equalToSuperview()
-      $0.width.height.equalTo(150)
+      $0.top.trailing.bottom.equalToSuperview()
+      $0.width.equalTo(150)
     }
+  }
+  
+  func configure(_ item : Focus) {
+    titleLabel.text = item.title
+    descriptionLabel.text = item.description
+    imageView.image = UIImage(systemName: item.imageName)?.withRenderingMode(.alwaysOriginal)
   }
 }

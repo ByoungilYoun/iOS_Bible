@@ -34,10 +34,10 @@ class FocusViewController : UIViewController {
   
   //MARK: - Functions
   private func configureUI() {
-    view.backgroundColor = .white
+    view.backgroundColor = .black
     
     view.addSubview(collectionView)
-    collectionView.backgroundColor = .white
+    collectionView.backgroundColor = .black
     
     collectionView.snp.makeConstraints {
       $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -57,7 +57,7 @@ class FocusViewController : UIViewController {
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FocusCell.identifier, for: indexPath) as? FocusCell else {
         return nil
       }
-//      cell.configure(item)
+      cell.configure(item)
       return cell
     })
   }
@@ -78,6 +78,9 @@ class FocusViewController : UIViewController {
     
     let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
     let section = NSCollectionLayoutSection(group: group)
+    section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20)
+    section.interGroupSpacing = 10
+    
     let layout = UICollectionViewCompositionalLayout(section: section)
     return layout
   }
