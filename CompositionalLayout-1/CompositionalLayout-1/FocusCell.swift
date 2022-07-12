@@ -12,6 +12,8 @@ class FocusCell : UICollectionViewCell {
   
   //MARK: - Properties
   
+  static let identifier = "FocusCell"
+  
   let titleLabel : UILabel = {
     let label = UILabel()
     label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
@@ -24,7 +26,7 @@ class FocusCell : UICollectionViewCell {
     let label = UILabel()
     label.font = UIFont.systemFont(ofSize: 17)
     label.textColor = .lightGray
-    label.text = "adsfasdfasdfasdfasfdsd"
+    label.text = "adsfasdfasdfasdfasfdsd\nasdfadsfasdfasdf\nasdfasdfasfasdasdfasdf"
     label.numberOfLines = 0
     return label
   }()
