@@ -55,12 +55,13 @@ class SpotifyViewController : UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureUI()
+    configureCollectionView()
   }
   
   //MARK: - Functions
   private func configureUI() {
     view.backgroundColor = .black
-    collectionView.backgroundColor = .white
+    collectionView.backgroundColor = .clear
     
     [titleLabel, collectionView, pageControl, getPremiumButton, spotifyImageView].forEach {
       view.addSubview($0)
@@ -94,5 +95,30 @@ class SpotifyViewController : UIViewController {
       $0.leading.trailing.equalToSuperview().inset(40)
       $0.height.equalTo(120)
     }
+  }
+  
+  private func configureCollectionView() {
+    collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.identifier)
+    collectionView.delegate = self
+    collectionView.dataSource = self
+  }
+}
+
+extension SpotifyViewController : UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return 4
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCell.identifier, for: indexPath) as? BannerCell else { return UICollectionViewCell() }
+    return cell
+  }
+}
+
+extension SpotifyViewController : UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let width = collectionView.frame.size.width
+    let height = collectionView.frame.size.height
+    return CGSize(width: width, height: height)
   }
 }

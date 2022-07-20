@@ -14,6 +14,7 @@
 		0FEDB921287DD90D00C87902 /* SpotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEDB920287DD90D00C87902 /* SpotifyViewController.swift */; };
 		0FEDB924287DD95500C87902 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0FEDB923287DD95500C87902 /* SnapKit */; };
 		0FEDB926287DDB0400C87902 /* BannerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEDB925287DDB0400C87902 /* BannerInfo.swift */; };
+		0FF6951B2884736A00E69CD3 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF6951A2884736A00E69CD3 /* BannerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		0FEDB91A287DD88E00C87902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FEDB920287DD90D00C87902 /* SpotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyViewController.swift; sourceTree = "<group>"; };
 		0FEDB925287DDB0400C87902 /* BannerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerInfo.swift; sourceTree = "<group>"; };
+		0FF6951A2884736A00E69CD3 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				0FEDB90E287DD88C00C87902 /* SceneDelegate.swift */,
 				0FEDB925287DDB0400C87902 /* BannerInfo.swift */,
 				0FEDB920287DD90D00C87902 /* SpotifyViewController.swift */,
+				0FF6951A2884736A00E69CD3 /* BannerCell.swift */,
 				0FEDB915287DD88E00C87902 /* Assets.xcassets */,
 				0FEDB917287DD88E00C87902 /* LaunchScreen.storyboard */,
 				0FEDB91A287DD88E00C87902 /* Info.plist */,
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FEDB90D287DD88C00C87902 /* AppDelegate.swift in Sources */,
+				0FF6951B2884736A00E69CD3 /* BannerCell.swift in Sources */,
 				0FEDB926287DDB0400C87902 /* BannerInfo.swift in Sources */,
 				0FEDB90F287DD88C00C87902 /* SceneDelegate.swift in Sources */,
 				0FEDB921287DD90D00C87902 /* SpotifyViewController.swift in Sources */,
