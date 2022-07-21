@@ -17,7 +17,6 @@ class BannerCell : UICollectionViewCell {
   var mainTitleLabel : UILabel = {
     let label = UILabel()
     label.textColor = .white
-    label.text = "asdfasdf"
     label.numberOfLines = 2
     label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
     return label
@@ -26,7 +25,6 @@ class BannerCell : UICollectionViewCell {
   var subTitleLabel : UILabel = {
     let label = UILabel()
     label.textColor = .white
-    label.text = "asdfasdfasdfasdfadsfasdfadsfasdfasdfasdfasdfasdfas"
     label.numberOfLines = 0
     label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
     return label
@@ -35,7 +33,6 @@ class BannerCell : UICollectionViewCell {
   var cellImageView : UIImageView = {
     let view = UIImageView()
     view.contentMode = .scaleAspectFit
-    view.backgroundColor = .red
     return view
   }()
   

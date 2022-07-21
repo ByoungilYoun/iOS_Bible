@@ -23,9 +23,7 @@ class SpotifyViewController : UIViewController {
   }()
   
   lazy var collectionView : UICollectionView = {
-    let layout = UICollectionViewFlowLayout()
-    layout.scrollDirection = .horizontal
-    return UICollectionView(frame: .zero, collectionViewLayout: layout)
+    return UICollectionView(frame: .zero, collectionViewLayout: layout())
   }()
   
   private let pageControl : UIPageControl = {
@@ -50,12 +48,30 @@ class SpotifyViewController : UIViewController {
     view.contentMode = .scaleAspectFit
     return view
   }()
+  
+  let bannerInfos : [BannerInfo] = BannerInfo.list
+  
+  let colors : [UIColor] = [.systemPurple, .systemOrange, .systemPink, .systemRed]
+  
+  typealias Item = BannerInfo
+  
+  enum Section {
+    case main
+  }
+  
+  var dataSource : UICollectionViewDiffableDataSource<Section, Item>!
 
   //MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     configureUI()
     configureCollectionView()
+    
+    // presentation : diffable datasource
+    
+    // data : snapshot
+    
+    // layout : compositional layout
   }
   
   //MARK: - Functions
@@ -98,27 +114,44 @@ class SpotifyViewController : UIViewController {
   }
   
   private func configureCollectionView() {
+    collectionView.collectionViewLayout = layout()
     collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.identifier)
-    collectionView.delegate = self
-    collectionView.dataSource = self
-  }
-}
-
-extension SpotifyViewController : UICollectionViewDataSource {
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 4
+    setDataSource()
+    makeSnapShot()
   }
   
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCell.identifier, for: indexPath) as? BannerCell else { return UICollectionViewCell() }
-    return cell
+  private func setDataSource() {
+    dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCell.identifier, for: indexPath) as? BannerCell else {
+        return nil
+      }
+      cell.configure(item)
+      cell.backgroundColor = self.colors[indexPath.item]
+      return cell
+    })
   }
-}
-
-extension SpotifyViewController : UICollectionViewDelegateFlowLayout {
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let width = collectionView.frame.size.width
-    let height = collectionView.frame.size.height
-    return CGSize(width: width, height: height)
+  
+  private func makeSnapShot() {
+    var snapShot = NSDiffableDataSourceSnapshot<Section, Item>()
+    snapShot.appendSections([.main])
+    snapShot.appendItems(bannerInfos, toSection: .main)
+    dataSource.apply(snapShot)
+  }
+  
+  private func layout() -> UICollectionViewCompositionalLayout {
+    
+    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+    let item = NSCollectionLayoutItem(layoutSize: itemSize)
+    
+    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .absolute(200))
+    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+    
+    let section = NSCollectionLayoutSection(group: group)
+//    section.orthogonalScrollingBehavior = .continuous // 현재 section 의 넓이에 구애받지 않고 옆으로 그냥 쭉 나열하라.
+    section.orthogonalScrollingBehavior = .groupPagingCentered // 알아서 가운대로 위치시킨다.
+    section.interGroupSpacing = 20
+    
+    let layout = UICollectionViewCompositionalLayout(section: section)
+    return layout
   }
 }
