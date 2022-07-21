@@ -8,6 +8,9 @@
 import UIKit
 import SnapKit
 
+// 애플 제공 다양한 compositional layout 관련 예제들
+//https://developer.apple.com/documentation/uikit/views_and_controls/collection_views/implementing_modern_collection_views
+
 class SpotifyViewController : UIViewController {
   
   //MARK: - Properties
@@ -28,7 +31,6 @@ class SpotifyViewController : UIViewController {
   
   private let pageControl : UIPageControl = {
     let control = UIPageControl()
-    control.numberOfPages = 3
     control.tintColor = .white
     return control
   }()
@@ -66,18 +68,13 @@ class SpotifyViewController : UIViewController {
     super.viewDidLoad()
     configureUI()
     configureCollectionView()
-    
-    // presentation : diffable datasource
-    
-    // data : snapshot
-    
-    // layout : compositional layout
   }
   
   //MARK: - Functions
   private func configureUI() {
     view.backgroundColor = .black
     collectionView.backgroundColor = .clear
+    pageControl.numberOfPages = bannerInfos.count
     
     [titleLabel, collectionView, pageControl, getPremiumButton, spotifyImageView].forEach {
       view.addSubview($0)
@@ -115,6 +112,7 @@ class SpotifyViewController : UIViewController {
   
   private func configureCollectionView() {
     collectionView.collectionViewLayout = layout()
+    collectionView.alwaysBounceVertical = false // collectionView 가 vertical 로 움직이는 것을 막음
     collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.identifier)
     setDataSource()
     makeSnapShot()
@@ -150,6 +148,12 @@ class SpotifyViewController : UIViewController {
 //    section.orthogonalScrollingBehavior = .continuous // 현재 section 의 넓이에 구애받지 않고 옆으로 그냥 쭉 나열하라.
     section.orthogonalScrollingBehavior = .groupPagingCentered // 알아서 가운대로 위치시킨다.
     section.interGroupSpacing = 20
+    
+    section.visibleItemsInvalidationHandler = { (item, offset, env) in
+      let index = Int((offset.x / env.container.contentSize.width).rounded(.up))
+      print("하하 index : \(index)")
+      self.pageControl.currentPage = index
+    }
     
     let layout = UICollectionViewCompositionalLayout(section: section)
     return layout

@@ -48,6 +48,8 @@ class BannerCell : UICollectionViewCell {
   
   //MARK: - Functions
   private func configureUI() {
+    layer.cornerRadius = 16
+    
     [mainTitleLabel, subTitleLabel, cellImageView].forEach {
       contentView.addSubview($0)
     }
