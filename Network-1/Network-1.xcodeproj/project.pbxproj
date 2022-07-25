@@ -26,6 +26,7 @@
 		0F82099A288EDE30006F5CE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F8209A0288EDE6B006F5CE1 /* URLSession.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = URLSession.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		0F8209A1288EE08D006F5CE1 /* DecodeData.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DecodeData.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		0F8209A2288EECD1006F5CE1 /* FetchMethod.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = FetchMethod.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +68,7 @@
 				0F82099A288EDE30006F5CE1 /* Info.plist */,
 				0F8209A0288EDE6B006F5CE1 /* URLSession.playground */,
 				0F8209A1288EE08D006F5CE1 /* DecodeData.playground */,
+				0F8209A2288EECD1006F5CE1 /* FetchMethod.playground */,
 			);
 			path = "Network-1";
 			sourceTree = "<group>";
